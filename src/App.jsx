@@ -6,19 +6,28 @@ import { useEffect } from "react";
 
 function App() {
   // TODO: save to local storage using useEffect
-  const [data, setData] = useImmer(
-    JSON.parse(window.localStorage.getItem("watertrackr_data")) || {
-      dailyGoal: 70,
-      history: [],
-    }
-  );
-
-  useEffect(() => {
-    window.localStorage.setItem("watertrackr_data", JSON.stringify(data));
-  }, [data]);
 
   const todaysDate = new Date();
   todaysDate.setHours(0, 0, 0, 0);
+
+  const [data, setData] = useImmer(
+    JSON.parse(window.localStorage.getItem("watertrackr_data")) || {
+      dailyGoal: 70,
+      history: [
+        {
+          date: todaysDate.toDateString(),
+          usage: {
+            drink: 0,
+            shower: 0,
+            flush: 0,
+            other: 0,
+            total: 0,
+          },
+        },
+      ],
+    }
+  );
+
   if (data.history.at(-1).date != todaysDate.toDateString()) {
     setData((prevData) => {
       prevData.history.push({
@@ -33,6 +42,10 @@ function App() {
       });
     });
   }
+
+  useEffect(() => {
+    window.localStorage.setItem("watertrackr_data", JSON.stringify(data));
+  }, [data]);
 
   const handleGoalChange = (newGoal) => {
     setData((prevData) => {
