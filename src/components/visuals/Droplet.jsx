@@ -3,7 +3,7 @@ export default function Droplet(props) {
   if (props.value < props.max) {
     height = (props.value / props.max) * 139 - 102; // range: -102 - 37
   } else {
-    height = 100;
+    height = 37;
   }
   return (
     <div className="col droplet">
