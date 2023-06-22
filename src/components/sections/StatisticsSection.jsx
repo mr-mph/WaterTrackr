@@ -44,7 +44,7 @@ export default function StatisticsSection(props) {
           selected={showSpecifics ? "Specifics" : "General"}
           handleSwitch={(selected) => setShowSpecifics(selected == "Specifics")}
         />
-        <div className="col card front">
+        <div className="col card front specific-section">
           {showSpecifics ? (
             <>
               <SpecificDisplay
@@ -72,7 +72,7 @@ export default function StatisticsSection(props) {
             <>
               <SpecificDisplay
                 text="Past Week"
-                value={totalCategories.other}
+                value={totalCategories.total}
                 max={props.dailyGoal * pastWeek.length}
               />
               <div className="row card mid week stretch">
