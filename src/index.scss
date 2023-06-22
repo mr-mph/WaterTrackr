@@ -184,9 +184,19 @@ svg {
 .weekday {
   padding-top: 20px;
   margin-inline: 5px;
+  flex-grow: 0;
 
   .text {
     margin: 5px;
+    padding: 10px;
+  }
+}
+
+.specific-section {
+  padding-block: 5px;
+
+  .specific-display {
+    margin-block: 5px;
   }
 }
 
