@@ -6,7 +6,7 @@ export default function Droplet(props) {
     height = 100;
   }
   return (
-    <div className="col">
+    <div className="col droplet">
       <svg
         width={108}
         height={148}

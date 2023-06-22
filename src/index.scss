@@ -6,7 +6,6 @@
 * {
   box-sizing: border-box;
   margin: 10px;
-  position: relative;
 }
 
 .row,
@@ -101,6 +100,10 @@ svg {
   padding: 5px 15px;
 }
 
+.droplet {
+  position: relative;
+}
+
 .slider-overlay,
 .droplet-overlay {
   font-size: 10pt;
@@ -144,7 +147,6 @@ svg {
 
 .slider {
   border-radius: 5px;
-  margin: 0;
   flex-grow: 0;
 }
 
@@ -192,8 +194,7 @@ svg {
   padding: 10px;
   background: #fff;
   position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 15% auto;
   z-index: 2;
 }
 
