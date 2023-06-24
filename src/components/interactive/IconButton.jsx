@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export default function IconButton(props) {
   const [pressed, setPressed] = useState(false);
 
-  const source = `/src/assets/${pressed ? "white" : "blue"}_${props.type}.svg`;
+  const source = `assets/${pressed ? "white" : "blue"}_${props.type}.svg`;
 
   useEffect(() => {
     window.addEventListener("mouseup", () => {
