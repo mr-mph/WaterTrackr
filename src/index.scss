@@ -203,9 +203,12 @@ svg {
 .modal {
   padding: 10px;
   background: #fff;
-  position: absolute;
-  margin: 15% auto;
+  position: fixed;
   z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  translate: -50% -50%;
 }
 
 .modal-background {
