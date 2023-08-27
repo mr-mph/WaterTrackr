@@ -8,22 +8,34 @@ function App() {
   const todaysDate = new Date();
   todaysDate.setHours(0, 0, 0, 0);
 
-  const [data, setData] = useImmer(
-    JSON.parse(window.localStorage.getItem("watertrackr_data")) || {
+  const initData = () => {
+    let dataObj = {
       dailyGoal: 70,
-      history: [
-        {
-          date: todaysDate.toDateString(),
-          usage: {
-            drink: 0,
-            shower: 0,
-            flush: 0,
-            other: 0,
-            total: 0,
-          },
+      history: [],
+    };
+
+    for (let i = 6; i >= 0; i--) {
+      const date = new Date(todaysDate);
+      date.setDate(date.getDate() - i);
+      date.setHours(0, 0, 0, 0);
+      console.log(date.toDateString());
+      console.log(i);
+      dataObj.history.push({
+        date: date.toDateString(),
+        usage: {
+          drink: 0,
+          shower: 0,
+          flush: 0,
+          other: 0,
+          total: 0,
         },
-      ],
+      });
     }
+    return dataObj;
+  };
+
+  const [data, setData] = useImmer(
+    JSON.parse(window.localStorage.getItem("watertrackr_data")) || initData()
   );
 
   if (data.history.at(-1).date != todaysDate.toDateString()) {
