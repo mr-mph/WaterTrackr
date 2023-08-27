@@ -5,8 +5,6 @@ import Usage from "./components/sections/UsageSection";
 import { useEffect } from "react";
 
 function App() {
-  // TODO: save to local storage using useEffect
-
   const todaysDate = new Date();
   todaysDate.setHours(0, 0, 0, 0);
 
