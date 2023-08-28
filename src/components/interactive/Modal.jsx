@@ -9,9 +9,10 @@ export default function Modal(props) {
   const [state, setState] = useState(props.type);
 
   const handleChange = (text, newValue) => {
+    if (isNaN(newValue)) return;
     setState((prevState) =>
       prevState.map((item) => {
-        return item.text == text ? { ...item, value: newValue } : item;
+        return item.text == text ? { ...item, value: Number(newValue) } : item;
       })
     );
   };
